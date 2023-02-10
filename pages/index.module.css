@@ -27,7 +27,8 @@
   padding-top: 60px;
 }
 .main .icon {
-  width: 34px;
+  width: 300px;
+  display: flex;
 }
 .main h3 {
   font-size: 32px;
@@ -36,6 +37,7 @@
   color: #202123;
   margin: 16px 0 40px;
 }
+
 .main form {
   display: flex;
   flex-direction: column;
