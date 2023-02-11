@@ -49,7 +49,7 @@ export default function Home() {
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <input type="submit" value="Generate players" />
+          <input type="submit" value="Top players" />
         </form>
         <div className={styles.result}>{result}</div>
       </main>

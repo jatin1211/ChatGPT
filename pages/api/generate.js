@@ -29,7 +29,7 @@ export default async function (req, res) {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: generatePrompt(animal),
-      temperature: 0.6,
+      temperature: 1,
     });
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch(error) {
@@ -54,7 +54,7 @@ function generatePrompt(animal) {
   return `Suggest three names for an animal that is a superhero.
 
 Sports: Cricket
-Names: Virat kohli, Sachin Tendulkar, MS Dhoni
+Names: Virat Kohli, Kapil Dev, MS Dhoni
 Sports: Soccer
 Names: Cristiano Ronaldo, Lionel Messi, Kylian Mbappe
 Sports: ${capitalizedAnimal}
