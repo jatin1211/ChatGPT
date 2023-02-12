@@ -19,7 +19,7 @@ export default async function (req, res) {
   if (animal.trim().length === 0) {
     res.status(400).json({
       error: {
-        message: "Please enter a valid sports name",
+        message: "Please enter a valid profession name",
       }
     });
     return;
@@ -30,6 +30,8 @@ export default async function (req, res) {
       model: "text-davinci-003",
       prompt: generatePrompt(animal),
       temperature: 1,
+      max_tokens: 200,
+      n: 10,
     });
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch(error) {
@@ -51,12 +53,28 @@ export default async function (req, res) {
 function generatePrompt(animal) {
   const capitalizedAnimal =
     animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for an animal that is a superhero.
+  return `Tell me in detail how to become a professional.
 
-Sports: Cricket
-Names: Virat Kohli, Kapil Dev, MS Dhoni
-Sports: Soccer
-Names: Cristiano Ronaldo, Lionel Messi, Kylian Mbappe
-Sports: ${capitalizedAnimal}
-Names:`;
+How to become a Lawyer
+###
+Steps: 1. Obtain an Undergraduate Degree
+2. Take the LSAT
+3. Choose a law school
+4. Complete the application form
+5. Go to law school
+6. Complete provincial bar admissions course and pass the exam.
+###
+
+How to become a Chartered professional accountant
+###
+Steps: 1.Earn an undergraduate degree.
+2. Apply for the CPA professional education program.
+3. Finish six modules in the CPA PEP.
+4. Complete 30 months of accounting experience.
+5. Pass the common final examination (CFE).
+6. Get and maintain your certification.
+###
+
+How to become a ${capitalizedAnimal}
+Steps:`;
 }

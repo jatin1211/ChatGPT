@@ -34,22 +34,22 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Sportbuzz</title>
+        <title>LearnMaster</title>
         <link rel="icon" href="/title.JPG" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/balls.JPG" className={styles.icon} />
-        <h3>Sportsbuzz !</h3>
+        <img src="/professional.JPG" className={styles.icon} />
+        <h3>See the Journey !</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
             name="animal"
-            placeholder="Name of sports"
+            placeholder="How to become a ..."
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <input type="submit" value="Top players" />
+          <input type="submit" value="Start your journey" />
         </form>
         <div className={styles.result}>{result}</div>
       </main>
