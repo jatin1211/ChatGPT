@@ -1,9 +1,11 @@
 ## LEARNING ChatGPT APIs
 
-# OpenAI API Quickstart - SPORTBUZZ learning app
+# OpenAI API - 'How to become a ....' app
 
 This repo is based to learn different API and models of ChatGPT
-* { Only for learning purposes }
+
+` Only for learning purposes ` 
+
 
 ## Setup
 
@@ -36,3 +38,10 @@ This repo is based to learn different API and models of ChatGPT
    ```
 
 You should now be able to access the app at [http://localhost:3000](http://localhost:3000)!
+
+
+## Description
+
+* User is able to search for a profession what they want to pursue/learn about in detail.
+
+* The results gives the necessary steps need to be taken to become a professional in the specified field.
