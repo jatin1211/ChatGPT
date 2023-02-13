@@ -28,14 +28,16 @@ export default async function (req, res) {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
+      // using a function for detailed prompts
       prompt: generatePrompt(animal),
       temperature: 1,
       max_tokens: 200,
+      // can change max_tokens value according to the requirement of the result's length
       n: 10,
     });
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch(error) {
-    // Consider adjusting the error handling logic for your use case
+    //  error handling logic 
     if (error.response) {
       console.error(error.response.status, error.response.data);
       res.status(error.response.status).json(error.response.data);
@@ -51,8 +53,11 @@ export default async function (req, res) {
 }
 
 function generatePrompt(animal) {
-  const capitalizedAnimal =
+  const professional =
     animal[0].toUpperCase() + animal.slice(1).toLowerCase();
+
+    // 2 sample prompts to teach the model
+
   return `Tell me in detail how to become a professional.
 
 How to become a Lawyer
@@ -75,6 +80,6 @@ Steps: 1.Earn an undergraduate degree.
 6. Get and maintain your certification.
 ###
 
-How to become a ${capitalizedAnimal}
+How to become a ${professional}
 Steps:`;
 }

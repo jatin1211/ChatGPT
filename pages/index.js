@@ -25,7 +25,7 @@ export default function Home() {
       setResult(data.result);
       setAnimalInput("");
     } catch(error) {
-      // Consider implementing your own error handling logic here
+      // error handling logic 
       console.error(error);
       alert(error.message);
     }
