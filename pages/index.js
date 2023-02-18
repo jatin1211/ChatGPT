@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
+  const [careerInput, setCareerInput] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -14,7 +14,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: animalInput }),
+        body: JSON.stringify({ professional: careerInput }),
       });
 
       const data = await response.json();
@@ -23,7 +23,7 @@ export default function Home() {
       }
       console.log("data is", data)
       setResult(data.result);
-      setAnimalInput("");
+      setCareerInput("");
     } catch(error) {
       // error handling logic 
       console.error(error);
@@ -44,10 +44,10 @@ export default function Home() {
         <form onSubmit={onSubmit}>
           <input
             type="text"
-            name="animal"
+            name="professional"
             placeholder="How to become a ..."
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
+            value={careerInput}
+            onChange={(e) => setCareerInput(e.target.value)}
           />
           <input type="submit" value="Start your journey" />
         </form>

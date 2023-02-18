@@ -15,8 +15,8 @@ export default async function (req, res) {
     return;
   }
 
-  const animal = req.body.animal || '';
-  if (animal.trim().length === 0) {
+  const professional = req.body.professional || '';
+  if (professional.trim().length === 0) {
     res.status(400).json({
       error: {
         message: "Please enter a valid profession name",
@@ -29,7 +29,7 @@ export default async function (req, res) {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       // using a function for detailed prompts
-      prompt: generatePrompt(animal),
+      prompt: generatePrompt(professional),
       temperature: 1,
       max_tokens: 200,
       // can change max_tokens value according to the requirement of the result's length
@@ -52,9 +52,9 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(animal) {
-  const professional =
-    animal[0].toUpperCase() + animal.slice(1).toLowerCase();
+function generatePrompt(professional) {
+  const capProfessional =
+    professional[0].toUpperCase() + professional.slice(1).toLowerCase();
 
     // 2 sample prompts to teach the model
 
